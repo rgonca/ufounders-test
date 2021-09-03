@@ -1,3 +1,8 @@
+import { connect } from 'react-redux';
+//Redux
+import { useHistory } from "react-router";
+import { logoutAction } from "../../redux/user/user.actions";
+//Design
 import Drawer from '@material-ui/core/Drawer';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -14,15 +19,16 @@ import DragIndicatorOutlinedIcon from '@material-ui/icons/DragIndicatorOutlined'
 import LanguageIcon from '@material-ui/icons/Language';
 
 
-const SideBar = ({ }: any) => {
+const SideBar = ({ logout}: any) => {
     const location = useLocation()
+    const history = useHistory()
 
     console.log(location);
 
     const routes = [
         {
             icon: <DragIndicatorOutlinedIcon />,
-            link: '/',
+            link: '/tickets',
             disabled: false
         },
         {
@@ -47,6 +53,10 @@ const SideBar = ({ }: any) => {
             disabled: true
         }
     ]
+    const closeSesion = async () => {
+        await logout()
+        history.push('/')
+    }
     return (
         <div className="d-flex">
             <Drawer
@@ -55,7 +65,7 @@ const SideBar = ({ }: any) => {
                 <IconButton>
                     <MenuIcon />
                 </IconButton>
-                <IconButton href='/' style={{ marginBottom: '150%' }}>
+                <IconButton onClick={() => closeSesion()} style={{ marginBottom: '150%' }}>
                     <LanguageIcon  style={{ fill: "red" }} />
                 </IconButton>
                 <ButtonGroup
@@ -77,4 +87,7 @@ const SideBar = ({ }: any) => {
     );
 }
 
-export default SideBar
+const mapDispatchToProps = (dispatch: any) => ({
+    logout: () => dispatch(logoutAction()),
+})
+export default connect(null, mapDispatchToProps)(SideBar)

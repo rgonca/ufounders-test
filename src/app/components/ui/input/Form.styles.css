@@ -1,0 +1,66 @@
+.form-input {
+    background: none;
+    background-color: #f2f2f2;
+    color: #4B5F78;
+    font-size: 16px;
+    padding: 0.5rem 1rem;
+    display: block;
+    width: 100%;
+    border: 1px solid #3D566E;
+    border-radius: 10px;
+    height: 45px;
+    margin-bottom: 10px;
+}
+
+.form-input:focus {
+    background: none;
+    background-color: #f2f2f2;
+    color: #4B5F78;
+    font-size: 16px;
+    padding: 0.5rem 1rem;
+    display: block;
+    width: 100%;
+    border: 1px solid #3D566E;
+    border-radius: 10px;
+    height: 45px;
+    margin-bottom: 10px;
+        outline: none;
+}
+
+.form-input--error {
+    background: none;
+    background-color: #f2f2f2;
+    color: #4B5F78;
+    font-size: 16px;
+    padding: 0.5rem 1rem;
+    display: block;
+    width: 100%;
+        border: 1px solid #FF0000;
+    border-radius: 10px;
+    height: 45px;
+    margin-bottom: 10px;
+}
+
+input[type="password"] {
+    letter-spacing: 0.4em;
+}
+
+.form-input-label {
+    font-size: 14px;
+    pointer-events: none;
+    margin: 0;
+}
+
+.form-input-label--error {
+        color: #FF0000;
+    font-size: 14px;
+    pointer-events: none;
+    margin: 0;
+}
+.form-input-label--disabled {
+        color: #B1BBC5;
+    font-size: 14px;
+    pointer-events: none;
+    margin: 0;
+}
+
