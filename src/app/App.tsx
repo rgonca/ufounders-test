@@ -11,7 +11,7 @@ function App() {
       <Navigation />
       <Switch>
         <Suspense fallback={<div style={{ marginLeft: '50%', marginTop: '50vh' }}>yoyo</div>}>
-          <div style={{ marginLeft: 100, marginTop: 65 }}>
+          <div style={{ marginLeft: 60, marginTop: 65 }}>
             <Route path="/" exact component={TicketsPage} />
             {/* <Route path='/agencies' component={AgenciesPage} />
             <Route path='/agency/:id/services' component={AgencyServicesPage} />

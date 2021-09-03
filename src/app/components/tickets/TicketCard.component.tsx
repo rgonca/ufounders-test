@@ -1,52 +1,45 @@
-import React from 'react'
 
+//DESIGN
 import ConfirmationNumberIcon from '@material-ui/icons/ConfirmationNumber';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Button } from '@material-ui/core';
+import { Card, Row, Col, Button } from 'react-bootstrap';
 
-const useStyles = makeStyles((theme) => ({
-    card: { display: 'flex', justifyContent: "space-between", width: '100%', borderBottom: '1px solid grey' },
-    mainInfo: { display: 'flex', justifyContent: "space-around", width: "75%" },
-    ids: { paddingLeft: "24px", paddingRight: "24px", width: "33%" },
-    status: { display: 'flex', alignItems: 'center', width: "33%", borderRadius: "15px", ticket: { width: '30%' } },
-    ticket: { width: '30%'}
-
-}));
-const TicketCard = ({ ticket }: any) => {
-    const classes = useStyles();
+const TicketCard = ({ ticket, getInfo }: any) => {
     const status = !ticket.present ? 'No ha entrado' : 'Ha entrado'
-    const statusTicket = !ticket.present ? <ConfirmationNumberIcon style={{ transform: 'rotateZ(90deg)', fill: 'red' }} /> : <ConfirmationNumberIcon style={{ transform: 'rotateZ(90deg)', fill: 'green' }} />
+    const statusTicket = !ticket.present ? <ConfirmationNumberIcon style={{ transform: 'rotateZ(90deg)', fill: 'red', fontSize: '2.5rem' }} /> : <ConfirmationNumberIcon style={{ transform: 'rotateZ(90deg)', fill: 'green', fontSize: '2.5rem' }} />
     return (
-        <div className={classes.card}>
-            <div className={classes.mainInfo}>
-                <div className={classes.status}>
-                    <div className={classes.ticket}>
-                        {statusTicket}
-                    </div>
-                    <div>
-                        <p>{ticket.firstName} {ticket.lastName}</p>
-                        <span>{status}</span>
-                    </div>
-                </div>
-                <hr />
-                <div className={classes.ids}>
-                    <p>ID</p>
-                    <p>{ticket._id}</p>
-                </div>
-                <hr />
-                <div className={classes.ids}>
-                    <p>Nº de ticket</p>
-                    <p>{ticket._id}</p>
-                </div>
-            </div>
-            <div >
-                <Button style={{marginTop: '45%'}}>
-                    <MoreHorizIcon />
-                </Button>
-            </div>
-        </div>
-
+            <Card style={{borderLeft: 'none', borderTop: "none", borderRight: "none"}}>
+                <Card.Body>
+                    <Row>
+                        <Col>
+                            <Row>
+                                <Col className="d-flex align-items-center">
+                                <div style={{ width: '15%'}}>
+                                        {statusTicket}
+                                    </div>
+                                    <div>
+                                    <h6 style={{ marginBottom: 5 }}>{ticket.firstName} {ticket.lastName}</h6>
+                                    <span style={{ color: '#707070' }}>{status}</span>
+                                    </div>
+                                </Col>
+                            <Col style={{ borderLeft: '1px solid #B1BBC5', borderRight: '1px solid #B1BBC5' }}>
+                                    <Card.Text style={{marginBottom: 5}}>ID</Card.Text>
+                                <span style={{ color: '#707070' }}>{ticket._id}</span>
+                                </Col>
+                                <Col>
+                                <Card.Text style={{ marginBottom: 5 }}>Nº de ticket</Card.Text>
+                                <span style={{ color: '#707070' }}>{ticket._id}</span>
+                                </Col>
+                            </Row>
+                        </Col>
+                        <Col sm={4} className="d-flex justify-content-end">
+                        <Button variant="light" onClick={() => getInfo(ticket)}>
+                                <MoreHorizIcon />
+                            </Button>
+                        </Col>
+                    </Row>
+                </Card.Body>
+            </Card>
     )
 }
 

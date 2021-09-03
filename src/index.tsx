@@ -1,11 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './app/App';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './app/App'
 import { BrowserRouter as Router } from 'react-router-dom'
 
-import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import reportWebVitals from './reportWebVitals'
 //REDUX
-import { Provider } from "react-redux";
+import { Provider } from "react-redux"
 import { store, persistor } from "./app/redux/store"
 import { PersistGate } from 'redux-persist/integration/react'
 
