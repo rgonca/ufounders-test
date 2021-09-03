@@ -28,6 +28,7 @@ const TicketsPage = ({ getTickets, getTicketInfo, ticketInfo, clearTicketInfo, u
                 <Row>
                     <Col>
                         <h1>Bienvenido de nuevo, {name}</h1>
+                        <p style={{ color: '#707070' }}>Estas son las personas que han comprado entrada</p>
                     </Col>
                 </Row>
                 {tickets && tickets.map((ticket: any, idx: any) => <TicketCard key={idx} ticket={ticket} getInfo={showTicketInfo} />)}
