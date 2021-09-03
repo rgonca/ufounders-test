@@ -1,5 +1,5 @@
-import { lazy, Suspense, useEffect, useState } from 'react';
-import { Switch, Route, HashRouter } from "react-router-dom"
+import { lazy, Suspense } from 'react';
+import { Switch, Route } from "react-router-dom"
 import { connect } from 'react-redux'
 //REDUX
 import { getUserLoginAction } from './redux/user/user.actions'

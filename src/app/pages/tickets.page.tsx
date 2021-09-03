@@ -6,12 +6,12 @@ import TicketModal from '../components/tickets/TicketModal.component'
 //REDUX
 import { getTicketsDataAction, getTicketInfoAction, clearTicketInfoAction } from '../redux/tickets/tickets.actions'
 //DESIGN
-import { Modal, Container, Row, Col, Button } from 'react-bootstrap'
+import { Modal, Container, Row, Col } from 'react-bootstrap'
 const TicketsPage = ({ getTickets, getTicketInfo, ticketInfo, clearTicketInfo, user, tickets }: any) => {
     const [show, setShow] = useState(false)
     useEffect(() => {
         getTickets()
-    }, [])
+    })
     const handleModal = () => show ? setShow(false) : setShow(true)
     const showTicketInfo = async (ticket: any) => {
         await getTicketInfo(ticket)
