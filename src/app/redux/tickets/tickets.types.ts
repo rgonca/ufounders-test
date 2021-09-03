@@ -1,0 +1,7 @@
+const ticketsActionTypes = {
+    GET_TICKETS_DATA_START: 'GET_TICKETS_DATA_START',
+    GET_TICKETS_DATA_SUCCESS: 'GET_TICKETS_DATA_SUCCESS',
+    GET_TICKETS_DATA_FAIL: 'GET_TICKETS_DATA_FAIL',
+
+}
+export default ticketsActionTypes
